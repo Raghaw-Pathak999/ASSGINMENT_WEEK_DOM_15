@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Profile Picture</title>
+  </head>
+  <body>
+    <h1>Update Profile Picture</h1>
+    <input type="file" id="takeIMG" name="Image File" >
+
+    <h1>ITS your selected image</h1>
+  <div class="imageINPUT"></div>
+
+    <script>
+     document.querySelector('#takeIMG').addEventListener('change', function () {
+      Setimage(this);
+    });
+
+    function Setimage(input) {
+      let Result =  document.querySelector('.imageINPUT');
+      Result.innerHTML = '';
+      let files = input.files;
+
+      if (files.length > 0){
+        let ELEMENimg =  document.createElement('img');
+        ELEMENimg.src = URL.createObjectURL(files[0]);
+        ELEMENimg.style.width = '20%'
+        Result.appendChild(ELEMENimg)
+      }
+
+    }
+    </script>
+  </body>
+</html>
